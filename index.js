@@ -14,5 +14,5 @@ app.use('/get', require('./action/get'));
 app.use('/post', require('./action/post'))
 app.use('/', express.static('files'));
 
-app.listen(8080);
+app.listen(process.env.PORT);
 
