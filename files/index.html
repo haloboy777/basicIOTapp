@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Energy Grid</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+</head>
+<body >
+	<span style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 4em;">
+		<center>SMART ENERGY GRID</center>
+	</span>
+	<br/>
+	<div class="centerit">
+	<img src="1.jpg" height="300" width="400" id="one"> 
+	<img id="two" src="2.jpg" height="300" width="400">
+	</div>
+	<BR/>
+	<div style="padding-left: 25%; font-size:2em; color:black;">GRID1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  GRID2 </div>
+	<br/>
+	<br/>
+	<br/>
+	<div style="padding-left: 30%; font-size:2em; color:black;">COST:______________</div>
+<div style="padding-left:43%;">
+<br/>
+<br/>
+<h2>Current State</h2>
+<table style="padding-left:3%;">
+	<tr>
+		<td>
+			Grid 1
+		</td>
+		<td>
+			Grid 2
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span id="oneData">1</span>
+		</td>
+		<td>
+			<span id="twoData">1</span>
+		</td>
+	</tr>
+</table>
+</div>
+</body>
+<style>
+.centerit{
+	padding: 0 15% 0 15%;
+}
+#one{
+	padding: 0 5% 0 0;
+}
+#two{
+	padding: 0 0 0 5%;
+}
+</style>
+<script>
+var one = document.getElementById("one");
+var oneData = document.getElementById("oneData");
+var xhttp = new XMLHttpRequest();
+one.addEventListener("click", function(){
+	console.log("One Clicked");
+	if(oneData.innerHTML === "1"){
+		oneData.innerHTML = "0";
+	} else {
+		oneData.innerHTML = "1";
+	}
+	xhttp.open("POST", "post", true);
+	xhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
+	var data = JSON.stringify({pressed:"one"});
+	xhttp.send(data);
+});
+var two = document.getElementById("two");
+var twoData = document.getElementById("twoData");
+two.addEventListener("click", function(){
+	console.log("Two Clicked");
+	if(twoData.innerHTML === "1"){
+		twoData.innerHTML = "0";
+	} else {
+		twoData.innerHTML = "1";
+	}
+	xhttp.open("POST", "post", true);
+	xhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
+	var data = JSON.stringify({pressed:"two"});
+	xhttp.send(data);
+});
+</script>
+</html>
